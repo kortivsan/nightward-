@@ -1,0 +1,45 @@
+name: Build iOS (sans signature)
+
+# Lancement MANUEL uniquement : onglet Actions, « Build iOS », bouton « Run workflow ».
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installer les outils
+        run: npm install
+
+      - name: Créer le projet iOS
+        run: npx cap add ios
+
+      - name: Générer l'icône et l'écran de lancement
+        run: npx capacitor-assets generate --ios
+
+      - name: Copier le site dans l'application
+        run: npx cap sync ios
+
+      - name: Compiler sans signature
+        run: |
+          xcodebuild -workspace ios/App/App.xcworkspace -scheme App \
+            -configuration Release -sdk iphoneos -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+
+      - name: Créer le fichier .ipa
+        run: |
+          mkdir Payload
+          cp -R build/Build/Products/Release-iphoneos/App.app Payload/App.app
+          zip -r NIGHTWARD.ipa Payload
+
+      - name: Publier le .ipa
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightward-ipa
+          path: NIGHTWARD.ipa

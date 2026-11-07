@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NIGHTWARD | Vêtements GYM, STREET et MODE</title>
+  <meta name="description" content="NIGHTWARD, marque de vêtements pensés pour la nuit : GYM, STREET et MODE.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <!-- APPLICATION MOBILE (PWA) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="NIGHTWARD">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <!-- ANIMATION D'ENTRÉE -->
+  <div id="intro" aria-label="NIGHTWARD">
+    <h1 class="intro-logo" data-split>NIGHTWARD</h1>
+    <div class="intro-line"></div>
+    <button class="welcome" id="welcome" type="button">BIENVENUE</button>
+  </div>
+
+  <!-- EN-TÊTE -->
+  <header class="header">
+    <div class="header-left">
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+      <a href="#accueil" class="header-logo" aria-label="NIGHTWARD, retour à l'accueil">
+        <img src="logo.png" alt="Logo NIGHTWARD">
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Catégories">
+      <a href="#collections">Nouveautés</a>
+      <a href="#gym">Gym</a>
+      <a href="#street">Street</a>
+      <a href="#mode">Mode</a>
+    </nav>
+
+    <div class="header-right">
+      <form class="search" role="search">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input type="search" placeholder="Rechercher" aria-label="Rechercher un vêtement">
+      </form>
+      <button class="sound-btn" aria-pressed="false" aria-label="Activer la musique d'ambiance">
+        <span></span><span></span><span></span>
+      </button>
+      <button class="fav-link" type="button" aria-label="Mes favoris">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span class="cart-badge" id="fav-count" hidden>0</span>
+      </button>
+      <a href="#panier" class="cart-link" aria-label="Panier">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+        <span class="cart-badge" id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MENU PLEIN ÉCRAN -->
+  <nav class="menu" id="menu" aria-label="Navigation principale">
+    <a href="#accueil" style="--i:0">Accueil</a>
+    <a href="#gym" style="--i:1">Gym</a>
+    <a href="#street" style="--i:2">Street</a>
+    <a href="#mode" style="--i:3">Mode</a>
+    <a href="#contact" style="--i:4">Contact</a>
+  </nav>
+
+  <main>
+    <!-- HERO : le nom se révèle à la lumière du curseur -->
+    <section class="hero" id="accueil">
+      <div class="hero-glow"></div>
+      <h2 class="hero-title" data-text="NIGHTWARD">NIGHTWARD</h2>
+      <a class="btn" href="#collections">Voir les collections</a>
+      <div class="scroll-cue" aria-hidden="true"></div>
+    </section>
+
+    <!-- MANIFESTE : les mots s'allument au défilement -->
+    <section class="manifesto">
+      <p data-words>Nous dessinons pour ceux qui commencent quand la ville s'éteint. Des coupes précises, des matières sombres, aucun bruit inutile.</p>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section class="collections" id="collections">
+      <a href="#gym" id="gym" class="panel g1" data-reveal style="--d:0s">
+        <div class="panel-bg"></div>
+        <h3>GYM</h3>
+        <p>Performance et maintien pour l'entraînement.</p>
+      </a>
+      <a href="#street" id="street" class="panel g2" data-reveal style="--d:.15s">
+        <div class="panel-bg"></div>
+        <h3>STREET</h3>
+        <p>Coupes amples, silhouettes urbaines.</p>
+      </a>
+      <a href="#mode" id="mode" class="panel g3" data-reveal style="--d:.3s">
+        <div class="panel-bg"></div>
+        <h3>MODE</h3>
+        <p>Pièces tendance, finitions haut de gamme.</p>
+      </a>
+    </section>
+
+    <!-- CATALOGUE -->
+    <section class="catalogue" id="catalogue">
+      <div class="cat-head">
+        <h2 id="cat-title">Catalogue</h2>
+        <div class="filters">
+          <button class="on" data-filter="all">Tout</button>
+          <button data-filter="GYM">Gym</button>
+          <button data-filter="STREET">Street</button>
+          <button data-filter="MODE">Mode</button>
+          <button data-filter="FAV"><svg class="mini-heart" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>Favoris</button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <nav class="pager" id="pager" aria-label="Pagination du catalogue"></nav>
+      <p class="pager-info" id="pager-info" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <!-- FICHE PRODUIT ET PANIER -->
+  <div class="scrim" id="scrim"></div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Fiche produit"></div>
+  <aside class="drawer" id="drawer" aria-label="Panier">
+    <div class="drawer-head"><h3>Panier</h3><button class="close" aria-label="Fermer le panier">×</button></div>
+    <div class="drawer-items" id="cart-items"></div>
+    <div class="drawer-foot">
+      <div class="total"><span>Total</span><span id="cart-total">0 €</span></div>
+      <button class="btn checkout">Commander</button>
+      <p class="note" id="cart-note" aria-live="polite"></p>
+    </div>
+  </aside>
+
+  <footer class="footer" id="contact">
+    <!-- RÉSEAUX SOCIAUX : remplace les liens href ci-dessous si besoin -->
+    <div class="socials">
+      <a class="social" href="https://discord.gg/a7rvjDeD2" target="_blank" rel="noopener noreferrer" aria-label="Discord NIGHTWARD">
+        <!-- 👉 LIEN DISCORD : change l'adresse dans href juste au-dessus -->
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5h-8l-4.5 3.5V18.5H4A1.5 1.5 0 012.5 17V7A1.5 1.5 0 014 5.5z"/><circle cx="8.5" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="15.5" cy="12" r=".9" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="social" href="https://www.instagram.com/nightward.fr" target="_blank" rel="noopener noreferrer" aria-label="Instagram NIGHTWARD">
+        <!-- 👉 LIEN INSTAGRAM : change l'adresse dans href juste au-dessus -->
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <button class="install" id="install" type="button" hidden>Installer l'app</button>
+    </div>
+    <span>NIGHTWARD</span>
+    <a href="mailto:nightwardfr@gmail.com">nightwardfr@gmail.com</a>
+    <span>© 2026</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
